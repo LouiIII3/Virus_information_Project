@@ -1,0 +1,472 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2B2E2CE02BE552D600C730AE /* testing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2E2CDF2BE552D600C730AE /* testing.swift */; };
+		2B2E2CE22BE5532200C730AE /* TestingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2E2CE12BE5532200C730AE /* TestingView.swift */; };
+		2B424C882BE152E8009D837A /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B424C872BE152E8009D837A /* Coordinator.swift */; };
+		2B424CA52BE25D66009D837A /* MapSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B424CA42BE25D66009D837A /* MapSectionView.swift */; };
+		2B424CA72BE36C64009D837A /* DiseaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B424CA62BE36C64009D837A /* DiseaseModel.swift */; };
+		2B5D120A2BE0D4E700997040 /* DiseaseTrackerMapApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5D12092BE0D4E700997040 /* DiseaseTrackerMapApp.swift */; };
+		2B5D120C2BE0D4E700997040 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5D120B2BE0D4E700997040 /* ContentView.swift */; };
+		2B5D120E2BE0D4E800997040 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B5D120D2BE0D4E800997040 /* Assets.xcassets */; };
+		2B5D12122BE0D4E800997040 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B5D12112BE0D4E800997040 /* Preview Assets.xcassets */; };
+		2BD11CD52BE395F60080F473 /* ComplexClusteringViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD11CD42BE395F60080F473 /* ComplexClusteringViewController.swift */; };
+		2BFDA45E2BE4DA3E000E3182 /* seoul_toilet.csv in Resources */ = {isa = PBXBuildFile; fileRef = 2BFDA45D2BE4DA3E000E3182 /* seoul_toilet.csv */; };
+		2BFDA4602BE541AE000E3182 /* MarkerDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFDA45F2BE541AE000E3182 /* MarkerDetailView.swift */; };
+		F97A9421594846C50F32A667 /* Pods_DiseaseTrackerMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 430D9781118701B486992BA2 /* Pods_DiseaseTrackerMap.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1410FE28FB7FF5AB045E8E34 /* Pods-DiseaseTrackerMap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DiseaseTrackerMap.debug.xcconfig"; path = "Target Support Files/Pods-DiseaseTrackerMap/Pods-DiseaseTrackerMap.debug.xcconfig"; sourceTree = "<group>"; };
+		2B2E2CDF2BE552D600C730AE /* testing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testing.swift; sourceTree = "<group>"; };
+		2B2E2CE12BE5532200C730AE /* TestingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingView.swift; sourceTree = "<group>"; };
+		2B424C872BE152E8009D837A /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		2B424CA42BE25D66009D837A /* MapSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSectionView.swift; sourceTree = "<group>"; };
+		2B424CA62BE36C64009D837A /* DiseaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiseaseModel.swift; sourceTree = "<group>"; };
+		2B5D12062BE0D4E700997040 /* DiseaseTrackerMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DiseaseTrackerMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2B5D12092BE0D4E700997040 /* DiseaseTrackerMapApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiseaseTrackerMapApp.swift; sourceTree = "<group>"; };
+		2B5D120B2BE0D4E700997040 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		2B5D120D2BE0D4E800997040 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2B5D120F2BE0D4E800997040 /* DiseaseTrackerMap.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DiseaseTrackerMap.entitlements; sourceTree = "<group>"; };
+		2B5D12112BE0D4E800997040 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		2B5D12182BE0F66A00997040 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		2BD11CD42BE395F60080F473 /* ComplexClusteringViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplexClusteringViewController.swift; sourceTree = "<group>"; };
+		2BFDA45D2BE4DA3E000E3182 /* seoul_toilet.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = seoul_toilet.csv; sourceTree = "<group>"; };
+		2BFDA45F2BE541AE000E3182 /* MarkerDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkerDetailView.swift; sourceTree = "<group>"; };
+		430D9781118701B486992BA2 /* Pods_DiseaseTrackerMap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DiseaseTrackerMap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		88318F7BC886DEDC2840B187 /* Pods-DiseaseTrackerMap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DiseaseTrackerMap.release.xcconfig"; path = "Target Support Files/Pods-DiseaseTrackerMap/Pods-DiseaseTrackerMap.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2B5D12032BE0D4E700997040 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F97A9421594846C50F32A667 /* Pods_DiseaseTrackerMap.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2B5D11FD2BE0D4E700997040 = {
+			isa = PBXGroup;
+			children = (
+				2B5D12082BE0D4E700997040 /* DiseaseTrackerMap */,
+				2B5D12072BE0D4E700997040 /* Products */,
+				3C6E28EAAF477AAB61E1C09D /* Pods */,
+				7BE9DEB5670AB89BC25EF136 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		2B5D12072BE0D4E700997040 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2B5D12062BE0D4E700997040 /* DiseaseTrackerMap.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2B5D12082BE0D4E700997040 /* DiseaseTrackerMap */ = {
+			isa = PBXGroup;
+			children = (
+				2B5D12182BE0F66A00997040 /* Info.plist */,
+				2B5D12092BE0D4E700997040 /* DiseaseTrackerMapApp.swift */,
+				2B5D120B2BE0D4E700997040 /* ContentView.swift */,
+				2BFDA45F2BE541AE000E3182 /* MarkerDetailView.swift */,
+				2B424CA42BE25D66009D837A /* MapSectionView.swift */,
+				2B424C872BE152E8009D837A /* Coordinator.swift */,
+				2B2E2CDF2BE552D600C730AE /* testing.swift */,
+				2B2E2CE12BE5532200C730AE /* TestingView.swift */,
+				2BD11CD42BE395F60080F473 /* ComplexClusteringViewController.swift */,
+				2B424CA62BE36C64009D837A /* DiseaseModel.swift */,
+				2BFDA45D2BE4DA3E000E3182 /* seoul_toilet.csv */,
+				2B5D120D2BE0D4E800997040 /* Assets.xcassets */,
+				2B5D120F2BE0D4E800997040 /* DiseaseTrackerMap.entitlements */,
+				2B5D12102BE0D4E800997040 /* Preview Content */,
+			);
+			path = DiseaseTrackerMap;
+			sourceTree = "<group>";
+		};
+		2B5D12102BE0D4E800997040 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				2B5D12112BE0D4E800997040 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		3C6E28EAAF477AAB61E1C09D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1410FE28FB7FF5AB045E8E34 /* Pods-DiseaseTrackerMap.debug.xcconfig */,
+				88318F7BC886DEDC2840B187 /* Pods-DiseaseTrackerMap.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		7BE9DEB5670AB89BC25EF136 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				430D9781118701B486992BA2 /* Pods_DiseaseTrackerMap.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2B5D12052BE0D4E700997040 /* DiseaseTrackerMap */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2B5D12152BE0D4E800997040 /* Build configuration list for PBXNativeTarget "DiseaseTrackerMap" */;
+			buildPhases = (
+				FCAD0C9BB4FE8390BB654D20 /* [CP] Check Pods Manifest.lock */,
+				2B5D12022BE0D4E700997040 /* Sources */,
+				2B5D12032BE0D4E700997040 /* Frameworks */,
+				2B5D12042BE0D4E700997040 /* Resources */,
+				A5EFFF70EF28DE48E04198EF /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DiseaseTrackerMap;
+			productName = DiseaseTrackerMap;
+			productReference = 2B5D12062BE0D4E700997040 /* DiseaseTrackerMap.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2B5D11FE2BE0D4E700997040 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1530;
+				LastUpgradeCheck = 1530;
+				TargetAttributes = {
+					2B5D12052BE0D4E700997040 = {
+						CreatedOnToolsVersion = 15.3;
+					};
+				};
+			};
+			buildConfigurationList = 2B5D12012BE0D4E700997040 /* Build configuration list for PBXProject "DiseaseTrackerMap" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2B5D11FD2BE0D4E700997040;
+			productRefGroup = 2B5D12072BE0D4E700997040 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2B5D12052BE0D4E700997040 /* DiseaseTrackerMap */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2B5D12042BE0D4E700997040 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2B5D12122BE0D4E800997040 /* Preview Assets.xcassets in Resources */,
+				2B5D120E2BE0D4E800997040 /* Assets.xcassets in Resources */,
+				2BFDA45E2BE4DA3E000E3182 /* seoul_toilet.csv in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A5EFFF70EF28DE48E04198EF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DiseaseTrackerMap/Pods-DiseaseTrackerMap-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DiseaseTrackerMap/Pods-DiseaseTrackerMap-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DiseaseTrackerMap/Pods-DiseaseTrackerMap-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FCAD0C9BB4FE8390BB654D20 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DiseaseTrackerMap-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2B5D12022BE0D4E700997040 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2B5D120C2BE0D4E700997040 /* ContentView.swift in Sources */,
+				2B424CA52BE25D66009D837A /* MapSectionView.swift in Sources */,
+				2B424CA72BE36C64009D837A /* DiseaseModel.swift in Sources */,
+				2BD11CD52BE395F60080F473 /* ComplexClusteringViewController.swift in Sources */,
+				2B5D120A2BE0D4E700997040 /* DiseaseTrackerMapApp.swift in Sources */,
+				2B2E2CE22BE5532200C730AE /* TestingView.swift in Sources */,
+				2B424C882BE152E8009D837A /* Coordinator.swift in Sources */,
+				2B2E2CE02BE552D600C730AE /* testing.swift in Sources */,
+				2BFDA4602BE541AE000E3182 /* MarkerDetailView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		2B5D12132BE0D4E800997040 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		2B5D12142BE0D4E800997040 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		2B5D12162BE0D4E800997040 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1410FE28FB7FF5AB045E8E34 /* Pods-DiseaseTrackerMap.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = DiseaseTrackerMap/DiseaseTrackerMap.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"DiseaseTrackerMap/Preview Content\"";
+				DEVELOPMENT_TEAM = 8HM2XMG9QM;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DiseaseTrackerMap/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "사용자의 위치를 받습니다.";
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 14.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = DiseaseTrackerWithNaverMap.DiseaseTrackerMap;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2B5D12172BE0D4E800997040 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 88318F7BC886DEDC2840B187 /* Pods-DiseaseTrackerMap.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = DiseaseTrackerMap/DiseaseTrackerMap.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"DiseaseTrackerMap/Preview Content\"";
+				DEVELOPMENT_TEAM = 8HM2XMG9QM;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DiseaseTrackerMap/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "사용자의 위치를 받습니다.";
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 14.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = DiseaseTrackerWithNaverMap.DiseaseTrackerMap;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2B5D12012BE0D4E700997040 /* Build configuration list for PBXProject "DiseaseTrackerMap" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2B5D12132BE0D4E800997040 /* Debug */,
+				2B5D12142BE0D4E800997040 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2B5D12152BE0D4E800997040 /* Build configuration list for PBXNativeTarget "DiseaseTrackerMap" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2B5D12162BE0D4E800997040 /* Debug */,
+				2B5D12172BE0D4E800997040 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2B5D11FE2BE0D4E700997040 /* Project object */;
+}
