@@ -19,16 +19,43 @@ enum CodingKeys: CodingKey {
 }
 
 struct DiseaseModel: Codable {
-    let longitude: Double// = NMGLatLng(lat: 36.5670135, lng: 125.9783740)
+    let date: String // 확진자 발생 날짜
+    let region: String
     let latitude: Double
-    let cases: Int
+    let longitude: Double // 확진자 수
+    let cases: String
     
-    init(longitude: Double, latitude: Double, cases: Int) {
-        self.longitude = longitude
+    init(date: String, region: String, latitude: Double, longitude: Double, cases: String) {
+        self.date = date
+        self.region = region
         self.latitude = latitude
+        self.longitude = longitude
         self.cases = cases
     }
 }
+
+class ItemData: NSObject, Codable {
+    
+    let date: String
+    let region: String
+
+    
+    init(date: String, region: String) {
+        self.date = date
+        self.region = region
+    }
+}
+/*
+ [
+     {
+         "date": "2024-02-23",
+         "region": "Seoul",
+         "cases": 3,
+         "latitude": 36.768812,
+         "longitude": 126.98726
+     }
+ ]
+ */
 /*
  확진자 정보:
  지역 (도시, 주, 국가 등)

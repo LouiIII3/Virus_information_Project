@@ -14,12 +14,13 @@ struct MarkerDetailView: View {
     var body: some View {
         VStack {
             if let tag = coordinator.tappedMarkerTag {
-                Text("확진자 이름:\(tag.name)")
-                Text("위험등급:\(tag.cases)")
-                Text("양성판정:\(tag.date)")
+                Text("발생시간:\(tag.date)")
+//                Text("위험등급:\(tag.region)")
+//                Text("양성판정:\(tag)")
                 Text("발생지역:\(tag.region)")
             }
         }
+        .padding()
     }
 }
 

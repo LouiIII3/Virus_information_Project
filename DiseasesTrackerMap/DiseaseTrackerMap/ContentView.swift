@@ -11,7 +11,8 @@ import NMapsMap
 
 
 struct ContentView: View {
-    @Environment(Coordinator.self) var coordinator
+//    @Environment(Coordinator.self) var coordinator
+    @EnvironmentObject var coordinator: Coordinator
     
     @State private var sectionPressed: Bool = false
     

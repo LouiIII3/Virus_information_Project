@@ -19,7 +19,8 @@ enum layerGroup: String {
 }
 
 struct MapSectionView: View {
-    @Environment(Coordinator.self) var map
+//    @Environment(Coordinator.self) var map
+    @EnvironmentObject var map: Coordinator
 
     var body: some View {
         
