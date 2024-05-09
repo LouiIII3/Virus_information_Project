@@ -39,8 +39,6 @@ class ItemKey: NSObject, NMCClusteringKey {
 
 
 
-
-@Observable
 class Coordinator: NSObject, NMFMapViewOptionDelegate, NMCClusterMarkerUpdater, NMCLeafMarkerUpdater , ObservableObject {
     
 //    static let shared = Coordinator()
@@ -55,11 +53,13 @@ class Coordinator: NSObject, NMFMapViewOptionDelegate, NMCClusterMarkerUpdater, 
     
     let view = NMFNaverMapView(frame: .infinite)
     
-    var markerTapped: Bool = false
+    @Published var markerTapped: Bool = false
     var test: String = "테스트"
     
-    var tappedMarkerInfo: NMCLeafMarkerInfo?
-    var tappedMarkerTag: ItemData? // = .init(name: "", date: Date(), region: "", cases: 0)
+    @Published var tappedMarkerInfo: NMCLeafMarkerInfo?
+    @Published var tappedMarkerTag: ItemData? // = .init(name: "", date: Date(), region: "", cases: 0)
+    
+    let arrowheadPath = NMFArrowheadPath()
     
     var cancellables = Set<AnyCancellable>()
     
@@ -107,8 +107,8 @@ class Coordinator: NSObject, NMFMapViewOptionDelegate, NMCClusterMarkerUpdater, 
         builder.leafMarkerUpdater = self
         self.clusterer = builder.build()
         
-//        self.makeClusterer()
-        self.getDiseaseData()
+        self.makeClusterer() // 클러스터 만들기
+//        self.getDiseaseData() // 클러스터링 작업도 포함된 메서드
         self.clusterer?.mapView = self.view.mapView
     }
     
@@ -138,17 +138,17 @@ class Coordinator: NSObject, NMFMapViewOptionDelegate, NMCClusterMarkerUpdater, 
         
         self.clusterer = builder.build()
         
-//        var keyTagMap = [ItemKey: ItemData]()
-//        keyTagMap = [
-//            ItemKey(identifier: 1, position: NMGLatLng(lat: 37.372, lng: 127.113)): ItemData(name: "1번 확진자", date: .now + 1, region: "발생지역1", cases: 1),
-//            ItemKey(identifier: 2, position: NMGLatLng(lat: 37.366, lng: 127.106)): ItemData(name: "2번 확진자", date: .now + 3, region: "발생지역2", cases: 2),
-//            ItemKey(identifier: 3, position: NMGLatLng(lat: 37.365, lng: 127.157)): ItemData(name: "3번 확진자", date: .now + 4, region: "발생지역3", cases: 1),
-//            ItemKey(identifier: 4, position: NMGLatLng(lat: 37.361, lng: 127.105)): ItemData(name: "4번 확진자", date: .now + 8, region: "발생지역4", cases: 4),
-//            ItemKey(identifier: 5, position: NMGLatLng(lat: 37.368, lng: 127.110)): ItemData(name: "5번 확진자", date: .now + 11, region: "발생지역5", cases: 5),
-//            ItemKey(identifier: 6, position: NMGLatLng(lat: 37.360, lng: 127.106)): ItemData(name: "6번 확진자", date: .now + 14, region: "발생지역6", cases: 2),
-//            ItemKey(identifier: 7, position: NMGLatLng(lat: 37.363, lng: 127.111)): ItemData(name: "7번 확진자", date: .now + 29, region: "발생지역7", cases: 9)
-//        ]
-//        self.clusterer?.addAll(keyTagMap)
+        var keyTagMap = [ItemKey: ItemData]()
+        keyTagMap = [
+            ItemKey(cases: 1, position: NMGLatLng(lat: 37.372, lng: 127.113)): ItemData(date: ".now + 1", region: "발생지역1"),
+            ItemKey(cases: 2, position: NMGLatLng(lat: 37.366, lng: 127.106)): ItemData(date: ".now + 3", region: "발생지역2"),
+            ItemKey(cases: 3, position: NMGLatLng(lat: 37.365, lng: 127.157)): ItemData(date: ".now + 4", region: "발생지역3"),
+            ItemKey(cases: 4, position: NMGLatLng(lat: 37.361, lng: 127.105)): ItemData(date: ".now + 8", region: "발생지역4"),
+            ItemKey(cases: 5, position: NMGLatLng(lat: 37.368, lng: 127.110)): ItemData(date: ".now + 11", region: "발생지역5"),
+            ItemKey(cases: 6, position: NMGLatLng(lat: 37.360, lng: 127.106)): ItemData(date: ".now + 14", region: "발생지역6"),
+            ItemKey(cases: 7, position: NMGLatLng(lat: 37.363, lng: 127.111)): ItemData(date: ".now + 29", region: "발생지역7")
+        ]
+        self.clusterer?.addAll(keyTagMap)
         
         //self.getDiseaseData()
         self.clusterer?.addAll(diseasesData)
@@ -159,12 +159,12 @@ class Coordinator: NSObject, NMFMapViewOptionDelegate, NMCClusterMarkerUpdater, 
     func updateLeafMarker(_ info: NMCLeafMarkerInfo, _ marker: NMFMarker) {
         let tag = info.tag as! ItemData
         let key = info.key as! ItemKey
-        marker.captionText = key.cases.description
+        marker.captionText = "\(key.cases)번 확진자"
         marker.iconImage = NMF_MARKER_IMAGE_GREEN
         marker.touchHandler = { [weak self] (overlay: NMFOverlay) -> Bool in
             self?.tappedMarkerInfo = info
             self?.tappedMarkerTag = tag
-            self?.markerTapped.toggle()
+            self?.markerTapped = true
             return true
         }
     }
@@ -189,12 +189,29 @@ class Coordinator: NSObject, NMFMapViewOptionDelegate, NMCClusterMarkerUpdater, 
     }
 }
 
-//extension
+extension Coordinator {
+    func addMarkerListener() {
+        $markerTapped
+            .receive(on: DispatchQueue.main)
+            .sink { (completion) in
+                print("COMPLETION: \(completion)")
+            } receiveValue: { [weak self] (tapped) in
+                if !tapped {
+                    self?.arrowheadPath.points = [
+                        NMGLatLng(lat: 37.568003, lng: 126.9772503),
+                        NMGLatLng(lat: 37.5701573, lng: 126.9772503),
+                        NMGLatLng(lat: 37.5701573, lng: 126.9793745)
+                    ]
+                    self?.arrowheadPath.mapView = self?.view.mapView
+                }
+            }
+
+    }
+}
 
 extension Coordinator {
     func getDiseaseData() {
         let decoder = JSONDecoder()
-        decoder.dateDecodingStrategy = .iso8601
         URLSession.shared.dataTaskPublisher(for: URL(string: "http://lsproject.shop:8080/all")!)
             .subscribe(on: DispatchQueue.global(qos: .background))
             .receive(on: DispatchQueue.main)
@@ -218,6 +235,7 @@ extension Coordinator {
                 self?.makeClusterer()
             }
             .store(in: &cancellables)
+        
     }
 }
 /*

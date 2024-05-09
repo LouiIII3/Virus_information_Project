@@ -9,7 +9,8 @@ import SwiftUI
 
 struct MarkerDetailView: View {
     
-    @Environment(Coordinator.self) var coordinator
+//    @Environment(Coordinator.self) var coordinator
+    @EnvironmentObject var coordinator: Coordinator
 
     var body: some View {
         VStack {
@@ -21,10 +22,14 @@ struct MarkerDetailView: View {
             }
         }
         .padding()
+        .onDisappear {
+            coordinator.markerTapped = false
+        }
     }
 }
 
 #Preview {
     MarkerDetailView()
-        .environment(Coordinator())
+//        .environment(Coordinator())
+        .environmentObject(Coordinator())
 }

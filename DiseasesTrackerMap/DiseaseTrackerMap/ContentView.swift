@@ -17,7 +17,7 @@ struct ContentView: View {
     @State private var sectionPressed: Bool = false
     
     var body: some View {
-        @Bindable var coordinators = coordinator
+//        @Bindable var coordinators = coordinator
         NaverMapView()
             .overlay {
                 methodButton
@@ -26,10 +26,13 @@ struct ContentView: View {
                 MapSectionView()
                     .presentationDetents([.medium])
             })
-            .sheet(isPresented: $coordinators.markerTapped, content: {
+            .sheet(isPresented: $coordinator.markerTapped, content: {
                 MarkerDetailView()
             })
             .ignoresSafeArea()
+            .onAppear {
+                coordinator.getDiseaseData()
+            }
 
     }
 }
@@ -61,7 +64,8 @@ extension ContentView {
 }
 
 struct NaverMapView: UIViewRepresentable {
-    @Environment(Coordinator.self) var coordinator
+//    @Environment(Coordinator.self) var coordinator
+    @EnvironmentObject var coordinator: Coordinator
     
     func makeCoordinator() -> Coordinator {
         return coordinator
@@ -81,5 +85,7 @@ struct NaverMapView: UIViewRepresentable {
 
 #Preview {
     ContentView()
-        .environment(Coordinator())
+//        .environment(Coordinator())
+        .environmentObject(Coordinator())
+
 }

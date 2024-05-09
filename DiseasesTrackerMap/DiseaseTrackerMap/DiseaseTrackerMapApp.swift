@@ -13,7 +13,8 @@ struct DiseaseTrackerMapApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environment(Coordinator())
+//                .environment(Coordinator())
+                .environmentObject(Coordinator())
         }
     }
 }

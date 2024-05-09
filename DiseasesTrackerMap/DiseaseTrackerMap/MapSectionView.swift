@@ -99,5 +99,7 @@ extension MapSectionView {
 
 #Preview {
     MapSectionView()
-        .environment(Coordinator())
+//        .environment(Coordinator())
+        .environmentObject(Coordinator())
+
 }
