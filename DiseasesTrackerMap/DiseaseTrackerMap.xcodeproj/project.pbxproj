@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2B2E2CE02BE552D600C730AE /* testing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2E2CDF2BE552D600C730AE /* testing.swift */; };
-		2B2E2CE22BE5532200C730AE /* TestingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2E2CE12BE5532200C730AE /* TestingView.swift */; };
 		2B424C882BE152E8009D837A /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B424C872BE152E8009D837A /* Coordinator.swift */; };
 		2B424CA52BE25D66009D837A /* MapSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B424CA42BE25D66009D837A /* MapSectionView.swift */; };
 		2B424CA72BE36C64009D837A /* DiseaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B424CA62BE36C64009D837A /* DiseaseModel.swift */; };
@@ -24,8 +22,6 @@
 
 /* Begin PBXFileReference section */
 		1410FE28FB7FF5AB045E8E34 /* Pods-DiseaseTrackerMap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DiseaseTrackerMap.debug.xcconfig"; path = "Target Support Files/Pods-DiseaseTrackerMap/Pods-DiseaseTrackerMap.debug.xcconfig"; sourceTree = "<group>"; };
-		2B2E2CDF2BE552D600C730AE /* testing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testing.swift; sourceTree = "<group>"; };
-		2B2E2CE12BE5532200C730AE /* TestingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingView.swift; sourceTree = "<group>"; };
 		2B424C872BE152E8009D837A /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		2B424CA42BE25D66009D837A /* MapSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSectionView.swift; sourceTree = "<group>"; };
 		2B424CA62BE36C64009D837A /* DiseaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiseaseModel.swift; sourceTree = "<group>"; };
@@ -82,8 +78,6 @@
 				2BFDA45F2BE541AE000E3182 /* MarkerDetailView.swift */,
 				2B424CA42BE25D66009D837A /* MapSectionView.swift */,
 				2B424C872BE152E8009D837A /* Coordinator.swift */,
-				2B2E2CDF2BE552D600C730AE /* testing.swift */,
-				2B2E2CE12BE5532200C730AE /* TestingView.swift */,
 				2BD11CD42BE395F60080F473 /* ComplexClusteringViewController.swift */,
 				2B424CA62BE36C64009D837A /* DiseaseModel.swift */,
 				2BFDA45D2BE4DA3E000E3182 /* seoul_toilet.csv */,
@@ -239,9 +233,7 @@
 				2B424CA72BE36C64009D837A /* DiseaseModel.swift in Sources */,
 				2BD11CD52BE395F60080F473 /* ComplexClusteringViewController.swift in Sources */,
 				2B5D120A2BE0D4E700997040 /* DiseaseTrackerMapApp.swift in Sources */,
-				2B2E2CE22BE5532200C730AE /* TestingView.swift in Sources */,
 				2B424C882BE152E8009D837A /* Coordinator.swift in Sources */,
-				2B2E2CE02BE552D600C730AE /* testing.swift in Sources */,
 				2BFDA4602BE541AE000E3182 /* MarkerDetailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -378,7 +370,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DiseaseTrackerMap/Info.plist;
-				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "사용자의 위치를 받습니다.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "사용자의 위치를 받습니다.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -419,7 +411,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DiseaseTrackerMap/Info.plist;
-				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "사용자의 위치를 받습니다.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "사용자의 위치를 받습니다.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreLocation
 
 @main
 struct DiseaseTrackerMapApp: App {
@@ -13,8 +14,10 @@ struct DiseaseTrackerMapApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-//                .environment(Coordinator())
                 .environmentObject(Coordinator())
+                .onAppear {
+                    CLLocationManager().requestAlwaysAuthorization()
+                }
         }
     }
 }

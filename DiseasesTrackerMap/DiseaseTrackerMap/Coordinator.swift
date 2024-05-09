@@ -41,8 +41,6 @@ class ItemKey: NSObject, NMCClusteringKey {
 
 class Coordinator: NSObject, NMFMapViewOptionDelegate, NMCClusterMarkerUpdater, NMCLeafMarkerUpdater , ObservableObject {
     
-//    static let shared = Coordinator()
-    
     var mapType: NMFMapType = .basic
     var mapDetail: [String:Bool] = [NMF_LAYER_GROUP_BICYCLE:false,
                                     NMF_LAYER_GROUP_TRAFFIC:false,
@@ -53,32 +51,16 @@ class Coordinator: NSObject, NMFMapViewOptionDelegate, NMCClusterMarkerUpdater, 
     
     let view = NMFNaverMapView(frame: .infinite)
     
-    @Published var markerTapped: Bool = false
-    var test: String = "테스트"
+    @Published var markerTapped: Bool = false // 마커가 눌렸는지 여부
+    @Published var tappedMarkerInfo: NMCLeafMarkerInfo? // 눌린 마커의 Info
+    @Published var tappedMarkerTag: ItemData? // 눌린 마커의 Tag
+    @Published var tappedMarkerKey: ItemKey? // 눌린 마커의 Key
     
-    @Published var tappedMarkerInfo: NMCLeafMarkerInfo?
-    @Published var tappedMarkerTag: ItemData? // = .init(name: "", date: Date(), region: "", cases: 0)
-    
-    let arrowheadPath = NMFArrowheadPath()
+    let pathOverlay = NMFPath()
     
     var cancellables = Set<AnyCancellable>()
     
     var diseasesData: [ItemKey: ItemData] = [:]
-    
-    //    func markerTag() -> ItemData {
-    //        return tappedMarkerInfo?.tag as! ItemData
-    //    }
-    //
-    //    func markerKey() -> NMCClusteringKey? {
-    //        if let key = tappedMarkerInfo?.key {
-    //            return key
-    //        } else {
-    //            return nil
-    //        }
-    //    }
-    
-    
-    
     
     class MarkerManager: NMCDefaultMarkerManager {
         override func createMarker() -> NMFMarker {
@@ -97,7 +79,8 @@ class Coordinator: NSObject, NMFMapViewOptionDelegate, NMCClusterMarkerUpdater, 
     
     override init() {
         super.init()
-        
+        view.mapView.positionMode = .compass
+        view.showLocationButton = true
         let builder = NMCComplexBuilder<ItemKey>()
         builder.minClusteringZoom = 9
         builder.maxClusteringZoom = 16
@@ -108,6 +91,7 @@ class Coordinator: NSObject, NMFMapViewOptionDelegate, NMCClusterMarkerUpdater, 
         self.clusterer = builder.build()
         
         self.makeClusterer() // 클러스터 만들기
+        self.addMarkerListener()
 //        self.getDiseaseData() // 클러스터링 작업도 포함된 메서드
         self.clusterer?.mapView = self.view.mapView
     }
@@ -163,6 +147,7 @@ class Coordinator: NSObject, NMFMapViewOptionDelegate, NMCClusterMarkerUpdater, 
         marker.iconImage = NMF_MARKER_IMAGE_GREEN
         marker.touchHandler = { [weak self] (overlay: NMFOverlay) -> Bool in
             self?.tappedMarkerInfo = info
+            self?.tappedMarkerKey = key
             self?.tappedMarkerTag = tag
             self?.markerTapped = true
             return true
@@ -189,6 +174,7 @@ class Coordinator: NSObject, NMFMapViewOptionDelegate, NMCClusterMarkerUpdater, 
     }
 }
 
+
 extension Coordinator {
     func addMarkerListener() {
         $markerTapped
@@ -196,20 +182,28 @@ extension Coordinator {
             .sink { (completion) in
                 print("COMPLETION: \(completion)")
             } receiveValue: { [weak self] (tapped) in
-                if !tapped {
-                    self?.arrowheadPath.points = [
-                        NMGLatLng(lat: 37.568003, lng: 126.9772503),
-                        NMGLatLng(lat: 37.5701573, lng: 126.9772503),
-                        NMGLatLng(lat: 37.5701573, lng: 126.9793745)
-                    ]
-                    self?.arrowheadPath.mapView = self?.view.mapView
+                if tapped {
+                    self?.pathOverlay.path = NMGLineString(points: [
+                        NMGLatLng(lat: 37.57152, lng: 126.97714),
+                        NMGLatLng(lat: 37.56607, lng: 126.98268),
+                        NMGLatLng(lat: 37.56445, lng: 126.97707),
+                        NMGLatLng(lat: 37.55855, lng: 126.97822)
+                    ])
+                    self?.pathOverlay.color = UIColor.red
+                    self?.pathOverlay.mapView = self?.view.mapView
+                } else {
+                    self?.pathOverlay.mapView = nil
                 }
             }
+            .store(in: &cancellables)
 
     }
 }
 
+
+
 extension Coordinator {
+    //MARK: 확진자들 좌표 + 정보 가져오기
     func getDiseaseData() {
         let decoder = JSONDecoder()
         URLSession.shared.dataTaskPublisher(for: URL(string: "http://lsproject.shop:8080/all")!)
@@ -235,6 +229,9 @@ extension Coordinator {
                 self?.makeClusterer()
             }
             .store(in: &cancellables)
+    }
+    
+    func getDiseaseDatas() {
         
     }
 }

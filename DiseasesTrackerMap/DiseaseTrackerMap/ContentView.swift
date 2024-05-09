@@ -28,6 +28,8 @@ struct ContentView: View {
             })
             .sheet(isPresented: $coordinator.markerTapped, content: {
                 MarkerDetailView()
+                    .presentationDetents([.fraction(0.35), .large])
+                    .presentationBackgroundInteraction(.enabled(upThrough: .fraction(0.35)))
             })
             .ignoresSafeArea()
             .onAppear {
