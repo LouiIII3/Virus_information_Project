@@ -5,15 +5,15 @@ import Combine
 
 
 class ItemKey: NSObject, NMCClusteringKey {
-    let cases: String
+    let cases: Int
     let position: NMGLatLng // 경도 위도
     
-    init(cases: String, position: NMGLatLng) {
+    init(cases: Int, position: NMGLatLng) {
         self.cases = cases
         self.position = position
     }
     
-    static func markerKey(position: NMGLatLng, cases: String) -> ItemKey {
+    static func markerKey(position: NMGLatLng, cases: Int) -> ItemKey {
         return ItemKey(cases: cases, position: position)
     }
     
@@ -29,7 +29,7 @@ class ItemKey: NSObject, NMCClusteringKey {
     }
     
     override var hash: Int {
-        return self.cases.hashValue
+        return self.cases
     }
     
     func copy(with zone: NSZone? = nil) -> Any {
@@ -108,6 +108,7 @@ class Coordinator: NSObject, NMFMapViewOptionDelegate, NMCClusterMarkerUpdater, 
         self.clusterer = builder.build()
         
 //        self.makeClusterer()
+        self.getDiseaseData()
         self.clusterer?.mapView = self.view.mapView
     }
     
@@ -125,7 +126,7 @@ class Coordinator: NSObject, NMFMapViewOptionDelegate, NMCClusterMarkerUpdater, 
         infoWindow.open(with: marker)
     }
     
-    func makeClusterer(data: [ItemKey:ItemData]) {
+    func makeClusterer() {
         
         let builder = NMCComplexBuilder<ItemKey>()
         builder.minClusteringZoom = 9
@@ -148,7 +149,9 @@ class Coordinator: NSObject, NMFMapViewOptionDelegate, NMCClusterMarkerUpdater, 
 //            ItemKey(identifier: 7, position: NMGLatLng(lat: 37.363, lng: 127.111)): ItemData(name: "7번 확진자", date: .now + 29, region: "발생지역7", cases: 9)
 //        ]
 //        self.clusterer?.addAll(keyTagMap)
-        self.getDiseaseData()
+        
+        //self.getDiseaseData()
+        self.clusterer?.addAll(diseasesData)
         self.clusterer?.mapView = self.view.mapView
     }
     
@@ -156,7 +159,7 @@ class Coordinator: NSObject, NMFMapViewOptionDelegate, NMCClusterMarkerUpdater, 
     func updateLeafMarker(_ info: NMCLeafMarkerInfo, _ marker: NMFMarker) {
         let tag = info.tag as! ItemData
         let key = info.key as! ItemKey
-        marker.captionText = key.cases
+        marker.captionText = key.cases.description
         marker.iconImage = NMF_MARKER_IMAGE_GREEN
         marker.touchHandler = { [weak self] (overlay: NMFOverlay) -> Bool in
             self?.tappedMarkerInfo = info
@@ -186,6 +189,8 @@ class Coordinator: NSObject, NMFMapViewOptionDelegate, NMCClusterMarkerUpdater, 
     }
 }
 
+//extension
+
 extension Coordinator {
     func getDiseaseData() {
         let decoder = JSONDecoder()
@@ -204,15 +209,13 @@ extension Coordinator {
                 print("COMPLETION: \(completion)")
             } receiveValue: { [weak self] (returnedPosts) in
                 // 받은 데이터를 사용하여 ItemKey와 ItemData를 생성하여 diseasesData에 추가
+                print(returnedPosts)
                 for model in returnedPosts {
                     let key = ItemKey(cases: model.cases, position: NMGLatLng(lat: model.latitude, lng: model.longitude))
                     let data = ItemData(date: model.date, region: model.region)
                     self?.diseasesData[key] = data
                 }
-                
-                if let data = self?.diseasesData {
-                    self?.makeClusterer(data: data)
-                }
+                self?.makeClusterer()
             }
             .store(in: &cancellables)
     }

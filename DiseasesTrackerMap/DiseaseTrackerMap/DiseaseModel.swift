@@ -23,9 +23,9 @@ struct DiseaseModel: Codable {
     let region: String
     let latitude: Double
     let longitude: Double // 확진자 수
-    let cases: String
+    let cases: Int
     
-    init(date: String, region: String, latitude: Double, longitude: Double, cases: String) {
+    init(date: String, region: String, latitude: Double, longitude: Double, cases: Int) {
         self.date = date
         self.region = region
         self.latitude = latitude
