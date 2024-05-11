@@ -72,9 +72,7 @@ class Coordinator: NSObject, NMFMapViewOptionDelegate, NMCClusterMarkerUpdater, 
             return marker
         }
     }
-    
-    let CSV_ASSET_NAME = "seoul_toilet"
-    
+        
     var clusterer: NMCClusterer<ItemKey>?
     
     override init() {

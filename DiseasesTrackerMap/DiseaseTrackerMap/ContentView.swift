@@ -11,13 +11,11 @@ import NMapsMap
 
 
 struct ContentView: View {
-//    @Environment(Coordinator.self) var coordinator
     @EnvironmentObject var coordinator: Coordinator
     
     @State private var sectionPressed: Bool = false
     
     var body: some View {
-//        @Bindable var coordinators = coordinator
         NaverMapView()
             .overlay {
                 methodButton
