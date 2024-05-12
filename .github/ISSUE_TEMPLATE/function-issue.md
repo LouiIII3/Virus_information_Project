@@ -1,6 +1,6 @@
 ---
-name: Feature request
-about: Project의 기능 요청 사항들
+name: Function issue
+about: Project의 기능 문제 사항들
 title: ''
 labels: ''
 assignees: ''

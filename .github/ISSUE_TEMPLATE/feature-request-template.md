@@ -1,6 +1,6 @@
 ---
-name: Custom issue template
-about: Project 기능 변경 사항들
+name: Feature request template
+about: Project 기능 요청 사항들
 title: ''
 labels: ''
 assignees: ''
