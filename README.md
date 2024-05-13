@@ -5,6 +5,22 @@
   <img style="width:20%; display:block; margin:0 auto;" src="https://github.com/LouiIII3/Virus_information_Project/assets/119919129/ee8cfdae-150b-47d6-ae84-9e1e94c5f8b5"/>
 </div>
 
+### adding Dependency using cocoapods
+To integrate NMapsMap into your Xcode project use CocoaPods, specify it in your Podfile:
+``` 
+# Uncomment the next line to define a global platform for your project
+platform :ios, '9.0'
+
+target 'DiseaseTrackerMap' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for DiseaseTrackerMap
+  pod 'NMapsMap'
+
+end
+```
+
 ### setting marker to show infected persons movements
 ```swift
     func setMarker(data: [UserRoute]) {
