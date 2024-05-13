@@ -21,6 +21,11 @@ target 'DiseaseTrackerMap' do
 end
 ```
 
+### import NMapsMap
+```swift
+import NMapsMap
+```
+
 ### setting marker to show infected persons movements
 ```swift
     func setMarker(data: [UserRoute]) {
