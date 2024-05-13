@@ -22,9 +22,8 @@ end
 ```
 
 ### import NMapsMap
-```swift
-import NMapsMap
-```
+`import NMapsMap`
+
 
 ### setting marker to show infected persons movements
 ```swift
