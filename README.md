@@ -5,7 +5,21 @@
   <img style="width:20%; display:block; margin:0 auto;" src="https://github.com/LouiIII3/Virus_information_Project/assets/119919129/ee8cfdae-150b-47d6-ae84-9e1e94c5f8b5"/>
 </div>
 
+### setting marker to show infected persons movements
 ```swift
-    func getDiseaseData() {
+    func setMarker(data: [UserRoute]) {
+        _ = data.map { route in
+            let marker = NMFMarker()
+            marker.iconImage = NMF_MARKER_IMAGE_PINK
+            marker.position = NMGLatLng(lat: route.latitude, lng: route.longitude)
+            marker.mapView = view.mapView
+            marker.iconImage = NMFOverlayImage(image: UIImage(systemName: "allergens")!)//NMFOverlayImage(name: "allergens")
+
+            let infoWindow = NMFInfoWindow()
+            let dataSource = NMFInfoWindowDefaultTextSource.data()
+            dataSource.title = "\(route.identifier)"
+            infoWindow.dataSource = dataSource
+            infoWindow.open(with: marker)
+        }
     }
 ```
