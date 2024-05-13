@@ -31,7 +31,6 @@
 		2B5D120D2BE0D4E800997040 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2B5D120F2BE0D4E800997040 /* DiseaseTrackerMap.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DiseaseTrackerMap.entitlements; sourceTree = "<group>"; };
 		2B5D12112BE0D4E800997040 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		2B5D12182BE0F66A00997040 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		2BD11CD42BE395F60080F473 /* ComplexClusteringViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplexClusteringViewController.swift; sourceTree = "<group>"; };
 		2BFDA45D2BE4DA3E000E3182 /* seoul_toilet.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = seoul_toilet.csv; sourceTree = "<group>"; };
 		2BFDA45F2BE541AE000E3182 /* MarkerDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkerDetailView.swift; sourceTree = "<group>"; };
@@ -72,7 +71,6 @@
 		2B5D12082BE0D4E700997040 /* DiseaseTrackerMap */ = {
 			isa = PBXGroup;
 			children = (
-				2B5D12182BE0F66A00997040 /* Info.plist */,
 				2B5D12092BE0D4E700997040 /* DiseaseTrackerMapApp.swift */,
 				2B5D120B2BE0D4E700997040 /* ContentView.swift */,
 				2BFDA45F2BE541AE000E3182 /* MarkerDetailView.swift */,

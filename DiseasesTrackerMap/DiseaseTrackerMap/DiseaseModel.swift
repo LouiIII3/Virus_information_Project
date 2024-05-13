@@ -12,10 +12,7 @@ import NMapsMap
 enum CodingKeys: CodingKey {
     case longitude // 경도
     case latitude // 위도
-    case cases // 확진자 수
-//    case confirmationDate // 확진 일자 및 시간
-//    case recoveries // 완치자 수
-//    case recoveryDate //
+    case identifier // 확진자 수
 }
 
 struct DiseaseModel: Codable {
@@ -23,14 +20,14 @@ struct DiseaseModel: Codable {
     let region: String
     let latitude: Double
     let longitude: Double // 확진자 수
-    let cases: Int
+    let identifier: Int
     
-    init(date: String, region: String, latitude: Double, longitude: Double, cases: Int) {
+    init(date: String, region: String, latitude: Double, longitude: Double, identifier: Int) {
         self.date = date
         self.region = region
         self.latitude = latitude
         self.longitude = longitude
-        self.cases = cases
+        self.identifier = identifier
     }
 }
 
@@ -38,13 +35,22 @@ class ItemData: NSObject, Codable {
     
     let date: String
     let region: String
-
     
     init(date: String, region: String) {
         self.date = date
         self.region = region
     }
 }
+
+struct UserRoute: Codable {
+    let id: Int // 데이터 id
+    let identifier: Int // 사용자 id
+    let timestamp: String
+    let latitude: Double
+    let longitude: Double
+    let locations: String
+}
+
 /*
  [
      {

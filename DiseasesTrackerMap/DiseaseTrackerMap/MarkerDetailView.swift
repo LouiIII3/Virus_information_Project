@@ -7,6 +7,21 @@
 
 import SwiftUI
 
+struct PressableStyle: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .font(.headline)
+            .foregroundStyle(.white)
+            .frame(height: 55)
+            .frame(maxWidth: 100)
+            .background(Color.green)
+            .clipShape(RoundedRectangle(cornerRadius: 10))
+            .shadow(color: Color.blue.opacity(0.3), radius: 10, x: 0.0, y: 10.0)
+        
+    }
+}
+
+
 struct MarkerDetailView: View {
     
     //    @Environment(Coordinator.self) var coordinator
@@ -14,8 +29,24 @@ struct MarkerDetailView: View {
     
     var body: some View {
         VStack {
-                if let key = coordinator.tappedMarkerKey {
-                    TextView(content: Text("\(key.cases)번 확진자"))
+            HStack {
+                Button(action: {
+                    if let identifier = coordinator.tappedMarkerKey?.identifier {
+                        coordinator.getRoute(id: identifier)
+                    }
+                }, label: {
+                    VStack {
+                        Image(systemName: "mappin.circle")
+                        Text("동선확인")
+                            .foregroundStyle(.white)
+                    }
+                })
+                .buttonStyle(PressableStyle())
+                
+                Spacer()
+            }
+            if let key = coordinator.tappedMarkerKey {
+                TextView(content: Text("\(key.identifier)번 확진자"))
             }
             VStack {
                 if let tag = coordinator.tappedMarkerTag {
