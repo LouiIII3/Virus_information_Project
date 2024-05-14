@@ -51,13 +51,21 @@ class Coordinator: NSObject, NMFMapViewOptionDelegate, NMCClusterMarkerUpdater, 
     
     let view = NMFNaverMapView(frame: .infinite)
     
+    //MARK: 탭한 마커의 정보
     @Published var markerTapped: Bool = false // 마커가 눌렸는지 여부
     @Published var tappedMarkerInfo: NMCLeafMarkerInfo? // 눌린 마커의 Info
     @Published var tappedMarkerTag: ItemData? // 눌린 마커의 Tag
     @Published var tappedMarkerKey: ItemKey? // 눌린 마커의 Key
     
+    
+    //MARK: 확진자 + 회복자 현황
+    @Published var recovered: Int =  0
+    @Published var nrecovered: Int = 0
+    @Published var tcovered: Int = 0
+    
     let pathOverlay = NMFPath()
     
+    //MARK: COMBINE
     var cancellables = Set<AnyCancellable>()
     
     var diseasesData: [ItemKey: ItemData] = [:]
@@ -110,8 +118,6 @@ class Coordinator: NSObject, NMFMapViewOptionDelegate, NMCClusterMarkerUpdater, 
             infoWindow.dataSource = dataSource
             infoWindow.open(with: marker)
         }
-        
-        
     }
     
     func makeClusterer() {
@@ -125,18 +131,6 @@ class Coordinator: NSObject, NMFMapViewOptionDelegate, NMCClusterMarkerUpdater, 
         builder.markerManager = MarkerManager()
         
         self.clusterer = builder.build()
-        
-        var keyTagMap = [ItemKey: ItemData]()
-        keyTagMap = [
-            ItemKey(identifier: 1, position: NMGLatLng(lat: 37.372, lng: 127.113)): ItemData(date: ".now + 1", region: "발생지역1"),
-            ItemKey(identifier: 2, position: NMGLatLng(lat: 37.366, lng: 127.106)): ItemData(date: ".now + 3", region: "발생지역2"),
-            ItemKey(identifier: 3, position: NMGLatLng(lat: 37.365, lng: 127.157)): ItemData(date: ".now + 4", region: "발생지역3"),
-            ItemKey(identifier: 4, position: NMGLatLng(lat: 37.361, lng: 127.105)): ItemData(date: ".now + 8", region: "발생지역4"),
-            ItemKey(identifier: 5, position: NMGLatLng(lat: 37.368, lng: 127.110)): ItemData(date: ".now + 11", region: "발생지역5"),
-            ItemKey(identifier: 6, position: NMGLatLng(lat: 37.360, lng: 127.106)): ItemData(date: ".now + 14", region: "발생지역6"),
-            ItemKey(identifier: 7, position: NMGLatLng(lat: 37.363, lng: 127.111)): ItemData(date: ".now + 29", region: "발생지역7")
-        ]
-        self.clusterer?.addAll(keyTagMap)
         
         //self.getDiseaseData()
         self.clusterer?.addAll(diseasesData)
@@ -184,25 +178,25 @@ class Coordinator: NSObject, NMFMapViewOptionDelegate, NMCClusterMarkerUpdater, 
 
 extension Coordinator {
     func addMarkerListener() {
-        $markerTapped
-            .receive(on: DispatchQueue.main)
-            .sink { (completion) in
-                print("COMPLETION: \(completion)")
-            } receiveValue: { [weak self] (tapped) in
-                if tapped {
-                    self?.pathOverlay.path = NMGLineString(points: [
-                        NMGLatLng(lat: 37.57152, lng: 126.97714),
-                        NMGLatLng(lat: 37.56607, lng: 126.98268),
-                        NMGLatLng(lat: 37.56445, lng: 126.97707),
-                        NMGLatLng(lat: 37.55855, lng: 126.97822)
-                    ])
-                    self?.pathOverlay.color = UIColor.red
-                    self?.pathOverlay.mapView = self?.view.mapView
-                } else {
-                    self?.pathOverlay.mapView = nil
-                }
-            }
-            .store(in: &cancellables)
+//        $markerTapped
+//            .receive(on: DispatchQueue.main)
+//            .sink { (completion) in
+//                print("COMPLETION: \(completion)")
+//            } receiveValue: { [weak self] (tapped) in
+//                if tapped {
+//                    self?.pathOverlay.path = NMGLineString(points: [
+//                        NMGLatLng(lat: 37.57152, lng: 126.97714),
+//                        NMGLatLng(lat: 37.56607, lng: 126.98268),
+//                        NMGLatLng(lat: 37.56445, lng: 126.97707),
+//                        NMGLatLng(lat: 37.55855, lng: 126.97822)
+//                    ])
+//                    self?.pathOverlay.color = UIColor.red
+//                    self?.pathOverlay.mapView = self?.view.mapView
+//                } else {
+//                    self?.pathOverlay.mapView = nil
+//                }
+//            }
+//            .store(in: &cancellables)
     }
     
 }
@@ -212,7 +206,6 @@ extension Coordinator {
 extension Coordinator {
     // 확진자들 좌표 + 정보 가져오기
     func getDiseaseData() {
-        let decoder = JSONDecoder()
         URLSession.shared.dataTaskPublisher(for: URL(string: "http://lsproject.shop:8080/all")!)
             .subscribe(on: DispatchQueue.global(qos: .background))
             .receive(on: DispatchQueue.main)
@@ -222,7 +215,7 @@ extension Coordinator {
                 }
                 return data
             }
-            .decode(type: [DiseaseModel].self, decoder: decoder)
+            .decode(type: [DiseaseModel].self, decoder: JSONDecoder())
             .sink { (completion) in
                 print("COMPLETION: \(completion)")
             } receiveValue: { [weak self] (returnedPosts) in
@@ -239,8 +232,8 @@ extension Coordinator {
     }
     
     // 확진자 동선 가져오기
-    func getRoute(id: Int) {
-        URLSession.shared.dataTaskPublisher(for: URL(string: "http://localhost:8080/routes/\(id)")!)
+    func getRoute(identifier: Int) {
+        URLSession.shared.dataTaskPublisher(for: URL(string: "http://lsproject.shop:8080/routes/\(identifier)")!)
             .subscribe(on: DispatchQueue.global(qos: .background))
             .receive(on: DispatchQueue.main)
             .tryMap { (data, response) -> Data in
@@ -255,9 +248,13 @@ extension Coordinator {
             } receiveValue: { [weak self] (routesData) in
                 
                 // 동선 화면에 나타내기
+                print("test1")
                 self?.pathOverlay.path = NMGLineString(points: routesData.map({ userRoute in
                     NMGLatLng(lat: userRoute.latitude, lng: userRoute.longitude)
                 }))
+                print("test2")
+                print(routesData.first?.latitude)
+                print(routesData.first)
                 self?.pathOverlay.mapView = self?.view.mapView
                 
                 // 동선 마크로 만들기
@@ -270,8 +267,25 @@ extension Coordinator {
 }
 
 extension Coordinator {
-    func setRouteMarker() {
-        
+    func getSummeryInfo() {
+        URLSession.shared.dataTaskPublisher(for: URL(string: "http://lsproject.shop:8080/recovered")!)
+            .subscribe(on: DispatchQueue.global(qos: .background))
+            .receive(on: DispatchQueue.main)
+            .tryMap { (data, response) -> Data in
+                guard let reponse = response as? HTTPURLResponse, reponse.statusCode >= 200 && reponse.statusCode < 300 else {
+                    throw URLError(.badServerResponse)
+                }
+                return data
+            }
+            .decode(type: RecoveryModel.self, decoder: JSONDecoder())
+            .sink { (completion) in
+                print("COMPLETION:\(completion)")
+            } receiveValue: { [weak self] recovery in
+                self?.recovered = recovery.rCount
+                self?.nrecovered = recovery.nrCount
+                self?.tcovered = recovery.tCount
+            }
+            .store(in: &cancellables)
     }
 }
 /*
@@ -284,4 +298,12 @@ extension Coordinator {
      ItemKey(identifier: 6, position: NMGLatLng(lat: 37.360, lng: 127.106)): ItemData(name: "6번 확진자", date: .now + 14, region: "발생지역6", cases: 2),
      ItemKey(identifier: 7, position: NMGLatLng(lat: 37.363, lng: 127.111)): ItemData(name: "7번 확진자", date: .now + 29, region: "발생지역7", cases: 9)
  ]
+ */
+
+/*
+ {
+     "rCount": 3,
+     "nrCount": 3,
+     "tCount": 6
+ }
  */

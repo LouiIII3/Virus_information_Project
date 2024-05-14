@@ -31,6 +31,12 @@ struct DiseaseModel: Codable {
     }
 }
 
+struct RecoveryModel: Codable {
+    let rCount: Int
+    let nrCount: Int
+    let tCount: Int
+}
+
 class ItemData: NSObject, Codable {
     
     let date: String

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B17A8A52BF362C5008E4433 /* SummeryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B17A8A42BF362C5008E4433 /* SummeryView.swift */; };
 		2B424C882BE152E8009D837A /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B424C872BE152E8009D837A /* Coordinator.swift */; };
 		2B424CA52BE25D66009D837A /* MapSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B424CA42BE25D66009D837A /* MapSectionView.swift */; };
 		2B424CA72BE36C64009D837A /* DiseaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B424CA62BE36C64009D837A /* DiseaseModel.swift */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		1410FE28FB7FF5AB045E8E34 /* Pods-DiseaseTrackerMap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DiseaseTrackerMap.debug.xcconfig"; path = "Target Support Files/Pods-DiseaseTrackerMap/Pods-DiseaseTrackerMap.debug.xcconfig"; sourceTree = "<group>"; };
+		2B17A8A42BF362C5008E4433 /* SummeryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummeryView.swift; sourceTree = "<group>"; };
 		2B424C872BE152E8009D837A /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		2B424CA42BE25D66009D837A /* MapSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSectionView.swift; sourceTree = "<group>"; };
 		2B424CA62BE36C64009D837A /* DiseaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiseaseModel.swift; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 			children = (
 				2B5D12092BE0D4E700997040 /* DiseaseTrackerMapApp.swift */,
 				2B5D120B2BE0D4E700997040 /* ContentView.swift */,
+				2B17A8A42BF362C5008E4433 /* SummeryView.swift */,
 				2BFDA45F2BE541AE000E3182 /* MarkerDetailView.swift */,
 				2B424CA42BE25D66009D837A /* MapSectionView.swift */,
 				2B424C872BE152E8009D837A /* Coordinator.swift */,
@@ -227,6 +230,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B5D120C2BE0D4E700997040 /* ContentView.swift in Sources */,
+				2B17A8A52BF362C5008E4433 /* SummeryView.swift in Sources */,
 				2B424CA52BE25D66009D837A /* MapSectionView.swift in Sources */,
 				2B424CA72BE36C64009D837A /* DiseaseModel.swift in Sources */,
 				2BD11CD52BE395F60080F473 /* ComplexClusteringViewController.swift in Sources */,

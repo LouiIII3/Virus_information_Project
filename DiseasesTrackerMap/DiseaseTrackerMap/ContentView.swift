@@ -15,10 +15,13 @@ struct ContentView: View {
     
     @State private var sectionPressed: Bool = false
     
+
+    
     var body: some View {
         NaverMapView()
             .overlay {
                 methodButton
+                summeryInfo
             }
             .sheet(isPresented: $sectionPressed, content: {
                 MapSectionView()
@@ -60,6 +63,14 @@ extension ContentView {
         }
         .padding(.horizontal)
         .padding(.top, 100)
+    }
+    
+    var summeryInfo: some View {
+        VStack {
+            SummeryView()
+            Spacer()
+        }
+        .padding(.top, 70)
     }
 }
 

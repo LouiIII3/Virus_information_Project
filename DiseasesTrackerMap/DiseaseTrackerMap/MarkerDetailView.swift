@@ -24,7 +24,6 @@ struct PressableStyle: ButtonStyle {
 
 struct MarkerDetailView: View {
     
-    //    @Environment(Coordinator.self) var coordinator
     @EnvironmentObject var coordinator: Coordinator
     
     var body: some View {
@@ -32,7 +31,7 @@ struct MarkerDetailView: View {
             HStack {
                 Button(action: {
                     if let identifier = coordinator.tappedMarkerKey?.identifier {
-                        coordinator.getRoute(id: identifier)
+                        coordinator.getRoute(identifier: identifier)
                     }
                 }, label: {
                     VStack {
