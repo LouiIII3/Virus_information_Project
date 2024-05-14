@@ -5,6 +5,7 @@
   <img style="width:20%; display:block; margin:0 auto;" src="https://github.com/LouiIII3/Virus_information_Project/assets/119919129/ee8cfdae-150b-47d6-ae84-9e1e94c5f8b5"/>
 </div>
 
+클라이언트용 코드 <details><summary>접기/펼치기</summary>
 ### adding Dependency using cocoapods
 To integrate NMapsMap into your Xcode project use CocoaPods, specify it in your Podfile:
 ``` 
@@ -43,3 +44,5 @@ end
         }
     }
 ```
+
+</details>
