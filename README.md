@@ -1,9 +1,26 @@
 # Virus_information_Project
- Virus Information Project aims to provide comprehensive data on viruses, aiding in public awareness and informed decision-making regarding health. Its goal is to educate and empower individuals with up-to-date information on virus characteristics, transmission, symptoms, prevention, and treatment options.
-
 <div align="center">
-  <img style="width:20%; display:block; margin:0 auto;" src="https://github.com/LouiIII3/Virus_information_Project/assets/119919129/ee8cfdae-150b-47d6-ae84-9e1e94c5f8b5"/>
+  <img style="width:45%; display:block; margin:0 auto;" src="https://github.com/LouiIII3/Social_media_project/assets/119919129/bdb22358-5e84-46e5-abe2-b3d89d1ae400"/>
 </div>
+
+## 프로젝트 소개
+바이러스 정보를 알려주는 서비스 입니다.
+
+
+### 주요 기능
+|기능|설명|사용 기술|
+|-----|------|---|
+|지도 정보|바이러스 정보들을 띄우기 위함|Naver 지도 API|
+
+
+
+## 2. UI 사진
+### 클라이언트 (iOS)
+| 메인페이지 | --- | --- |
+|-------|-------|-------|
+| ![main](https://github.com/LouiIII3/Virus_information_Project/assets/119919129/ee8cfdae-150b-47d6-ae84-9e1e94c5f8b5) | ![NONE](NULL) | ![NONE2](NULL) |
+
+
 
 클라이언트용 코드 <details><summary>접기/펼치기</summary>
 ### adding Dependency using cocoapods
