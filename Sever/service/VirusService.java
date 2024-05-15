@@ -16,6 +16,7 @@ public class VirusService {
         this.virusRepository = virusRepository;
     }
 
+    
     public List<Virus> getAllViruses() {
         return virusRepository.findAll();
     }
