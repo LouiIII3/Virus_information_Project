@@ -31,7 +31,8 @@ struct MarkerDetailView: View {
             HStack {
                 Button(action: {
                     if let identifier = coordinator.tappedMarkerKey?.identifier {
-                        coordinator.getRoute(identifier: identifier)
+//                        coordinator.getRoute(identifier: identifier)
+                        coordinator.getFakeRoute()
                     }
                 }, label: {
                     VStack {
@@ -58,6 +59,7 @@ struct MarkerDetailView: View {
         .padding()
         .onDisappear {
             coordinator.markerTapped = false
+            coordinator.resetPathAndMarkers()
         }
         
         

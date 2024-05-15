@@ -12,7 +12,7 @@ import NMapsMap
 enum CodingKeys: CodingKey {
     case longitude // 경도
     case latitude // 위도
-    case identifier // 확진자 수
+    case identifier // 확진자 식별확인방법
 }
 
 struct DiseaseModel: Codable {
