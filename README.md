@@ -77,17 +77,17 @@ public class Virus {
     @Id
     private Long id;
 
-    //날짜
-    private LocalDate Date;
-    //지역
+    // Date
+    private LocalDate date;
+    // Region
     private String region;
-    //확진번호
+    // Confirmed Case Number
     private int identifier;
-    //완치 판정인지
+    // Whether Recovered
     private boolean recovered;
-    //위도
+    // Latitude
     private double latitude;
-    //경도
+    // Longitude
     private double longitude;
 }
 ```
