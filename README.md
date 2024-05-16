@@ -6,18 +6,6 @@
 ## 프로젝트 소개
 바이러스 정보를 알려주는 서비스 입니다.
 
-
-### Key Features
-
-| **Feature**               | **Description**                                                                                      | **Technologies Used**                                                                                            |
-|---------------------------|------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------|
-| Real-time Virus Information | Provides the latest virus outbreak status and infection statistics, location-based area information, and nearby hospital locations | Frontend: Swift <br>Backend: SpringBoot <br>API: RESTful API  |               |
-| Data Visualization         | Visualizes virus spread through graphs and maps                                                    | Data Visualization Library: Naver Maps API                                            |
-| Server Framework           | Provides quick server setup and scalability                                                        | SpringBoot                                                                                 |
-| Database                   | Data storage and management                                                                        | SQL: MySQL, MariaDB<br>NoSQL: MongoDB                                                              |               
-| Deployment and Maintenance | Server and database hosting, system performance monitoring, and log analysis                       | Cloud Infrastructure: AWS |
-
-
 ### 주요 기능
 | **기능**              | **설명**                                                                                     | **사용기술**                                                                                          |
 |-----------------------|----------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------|
