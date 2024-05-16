@@ -63,3 +63,36 @@ end
 ```
 
 </details>
+
+
+
+
+서버 코드 <details><summary>접기/펼치기</summary>
+### Database Field (Total Confirmed Cases Information)
+We have information about the total confirmed cases.
+``` 
+@Entity
+@Data
+public class Virus {
+    @Id
+    private Long id;
+
+    //날짜
+    private LocalDate Date;
+    //지역
+    private String region;
+    //확진번호
+    private int identifier;
+    //완치 판정인지
+    private boolean recovered;
+    //위도
+    private double latitude;
+    //경도
+    private double longitude;
+}
+```
+
+
+</details>
+
+
