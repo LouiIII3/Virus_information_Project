@@ -7,14 +7,16 @@
 바이러스 정보를 알려주는 서비스 입니다.
 
 
-### 주요 기능
-| **기능**              | **설명**                                                                                     | **사용기술**                                                                                          |
-|-----------------------|----------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------|
-| 실시간 바이러스 정보 제공 | 최신 바이러스 발생 현황 및 감염자 수 통계 제공, 사용자 위치 기반 지역 정보 제공, 근처 병원 위치 제공 | 프론트엔드: Swift <br>백엔드: SpringBoot <br>API: RESTful API  |               |
-| 데이터 시각화         | 그래프와 지도를 통한 바이러스 확산 현황 시각화                                                   | 데이터 시각화 라이브러리: Naver Maps API                                            |
-| 서버 프레임워크       | 빠른 서버 구축 및 확장성 제공                                                                   | SpringBoot                                                                          |
-| 데이터베이스          | 데이터 저장 및 관리                                                                           | SQL: MySQL, MariaDB<br>NoSQL: MongoDB                                                              |               
-| 배포 및 유지보수      | 서버 및 데이터베이스 호스팅, 시스템 성능 모니터링 및 로그 분석 | 클라우드 인프라: AWS|
+### Key Features
+
+| **Feature**               | **Description**                                                                                      | **Technologies Used**                                                                                            |
+|---------------------------|------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------|
+| Real-time Virus Information | Provides the latest virus outbreak status and infection statistics, location-based area information, and nearby hospital locations | Frontend: Swift <br>Backend: SpringBoot <br>API: RESTful API  |               |
+| Data Visualization         | Visualizes virus spread through graphs and maps                                                    | Data Visualization Library: Naver Maps API                                            |
+| Server Framework           | Provides quick server setup and scalability                                                        | SpringBoot                                                                                 |
+| Database                   | Data storage and management                                                                        | SQL: MySQL, MariaDB<br>NoSQL: MongoDB                                                              |               
+| Deployment and Maintenance | Server and database hosting, system performance monitoring, and log analysis                       | Cloud Infrastructure: AWS |
+
 
 
 
