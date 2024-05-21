@@ -11,7 +11,6 @@ import java.util.stream.Collectors;
 
 @Service
 public class RouteService {
-
     private final RouteRepository routeRepository;
 
     @Autowired
